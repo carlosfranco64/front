@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 export const ModalTask = () => {
-  const { handleClosedModal, createTask, edit, currenTask, updateOneTask } =
+  const { handleClosedModal, createTask, edit, currenTask, updateOneTask,mode } =
     useTask();
 
   // console.log(currenTask)
@@ -32,9 +32,9 @@ export const ModalTask = () => {
   });
 
   return (
-    <div className="h-[calc(100vh-100px)] fixed inset-0 bg-black bg-opacity-10 backdrop-blur-sm flex justify-center items-center">
-      <div className="bg-zinc-800  p-10 rounded-md ">
-        <h1 className="font-bold text-2xl">
+    <div className={` $ h-[calc(100vh-100px)] fixed inset-0 bg-black bg-opacity-10 backdrop-blur-sm flex justify-center items-center`}>
+      <div className={` ${mode ? "bg-zinc-800":"bg-[#f7f5f52c]"} p-10 rounded-md `}>
+        <h1 className={` ${mode ? "text-black" :"text-white"} font-bold text-2xl`}>
           {edit ? "EDITAR TAREA" : "CREAR TAREA"}
         </h1>
         <hr className="mb-4" />
@@ -64,12 +64,12 @@ export const ModalTask = () => {
           </div>
           }
           <div className="flex">
-            <button className="mx-1 bg-blue-500 w-full h-10 my-1 font-semibold rounded-md active:bg-blue-700">
+            <button className={` ${mode ? "text-white":"text-white"} mx-1 bg-blue-500 w-full h-10 my-1 font-semibold rounded-md active:bg-blue-700`}>
               {edit ? "Actualizar" : "Guardar"}
             </button>
             <button
               onClick={handleClosedModal}
-              className="mx-1 bg-red-500 w-full h-10 my-1 font-semibold rounded-md active:bg-red-700"
+              className={` ${mode ? "text-white":"text-white"} mx-1 bg-red-500 w-full h-10 my-1 font-semibold rounded-md active:bg-red-700`}
             >
               Cancelar
             </button>

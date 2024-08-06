@@ -16,7 +16,7 @@ export const Header = () => {
 
 
   return (
-    <div className={`${mode ? "text-white" :"text-black"} bg-zinc-900 w-full h-12 flex justify-between px-4 ${mode ? "bg-[#353535] ":"bg-[#8883832c] "}`}>
+    <div className={`${mode ? "text-white" :"text-black"}  w-full h-12 flex justify-between px-4 ${mode ? "bg-[#353535] ":"bg-[#8883832c] "}`}>
       <div className=" flex my-auto">
       <FaTasks className="h-8 w-8 mr-2" />
       <span className={`text-2xl font-bold  `}>TaskControl</span>

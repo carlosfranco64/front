@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTask } from "../context/TaskContext";
 
 export const RegisterPage = () => {
   const {
@@ -12,6 +13,8 @@ export const RegisterPage = () => {
 
   const { signup, isAuthenticate, errors: registerErrors } = useAuth();
 
+ const {mode}= useTask()
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,14 +24,13 @@ export const RegisterPage = () => {
   const onSubmit = handleSubmit(async (values) => {
     signup(values);
   });
-
   return (
-    <div className="flex h-[calc(100vh-100px)] items-center justify-center">
-      <div className="bg-zinc-800 p-10 rounded-md ">
+    <div className={`  flex h-[calc(100vh-100px)] items-center justify-center`}>
+      <div className={` ${mode ? "bg-zinc-800":"bg-[#3333332c]"}  p-10 rounded-md`  }>
         <h1 className="font-bold text-2xl ">REGISTER</h1>
         <hr className="mb-4" />
 
-        {registerErrors.map((error, i) => (
+        {registerErrors.map((error, i) => ( 
           <div key={i} className=" bg-red-500 py-4 px-2">
             {error}
           </div>
